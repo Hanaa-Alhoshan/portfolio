@@ -8,43 +8,89 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    font-weight: 400; /* إضافة وزن الخط الأساسي */
+    font-weight: 400;
 }
 
-/* تنسيق الهيدر */
 header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+    background: #7d4f50; /* لون خلفية داكن */
+    color: #fff; /* لون النص */
+    padding: 10px 20px; /* مسافات داخلية */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex; /* استخدام Flexbox لتوزيع العناصر */
+    justify-content: center; /* محاذاة المحتوى بالمنتصف */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    gap: 20px; /* مسافة بين العناصر */
 }
 
+/* زر تحميل السيرة الذاتية */
+.resume-download-btn {
+    background: #d1be9c; /* لون الخلفية البيج */
+    color: #333; /* لون النص */
+    padding: 5px 15px; /* تصغير المسافات داخل الزر */
+    border: none;
+    border-radius: 4px; /* زوايا مستديرة */
+    font-size: 14px; /* تصغير حجم النص */
+    font-weight: 600;
+    text-decoration: none; /* إزالة الخط السفلي */
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.resume-download-btn:hover {
+    background: #f9eae1; /* لون أغمق عند التمرير */
+    transform: scale(1.05); /* تأثير تكبير بسيط */
+}
+
+/* قائمة الروابط */
 .nav-links {
-    list-style: none;
+    list-style: none; /* إزالة النقاط */
     padding: 0;
-    display: flex;
-    justify-content: center;
+    margin: 0;
+    display: flex; /* جعل العناصر في صف واحد */
+    gap: 20px; /* مسافة بين الروابط */
 }
 
 .nav-links li {
-    margin: 0 15px;
+    margin: 0;
 }
 
 .nav-links a {
-    color: #fff;
-    text-decoration: none;
+    color: #fff; /* لون النص */
+    text-decoration: none; /* إزالة الخط السفلي */
+    font-size: 16px; /* حجم النص */
     font-weight: 600;
-    transition: color 0.3s ease;
+    padding: 8px 12px; /* مسافات داخل الرابط */
+    border-radius: 4px; /* زوايا مستديرة */
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #ffcc00;
-    text-decoration: underline; /* إضافة خط تحت الرابط عند التمرير */
+    background: #d1be9c; /* خلفية عند التمرير */
+    color: #333; /* لون النص عند التمرير */
+}
+
+/* تنسيق العرض الأصغر */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* ترتيب عمودي */
+        align-items: center; /* محاذاة العناصر في المنتصف */
+    }
+
+    .resume-download-btn {
+        margin-bottom: 10px; /* إضافة مسافة بين الزر والقائمة */
+    }
+
+    .nav-links {
+        flex-direction: column; /* جعل الروابط عمودية */
+        gap: 10px; /* تقليل المسافة بين الروابط */
+    }
 }
 
 /* تنسيق قسم الترحيب */
 #hero {
-    background: #f4f4f4;
+    background: #f9eae1; /* لون خلفية فاتح */
     padding: 50px 20px;
     text-align: center;
 }
@@ -52,7 +98,7 @@ header {
 #hero h1 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #333;
+    color: #7d4f50; /* اللون الداكن */
 }
 
 #hero p {
@@ -90,7 +136,7 @@ section {
 
 .project h3 {
     margin: 15px 0;
-    color: #333;
+    color: #7d4f50; /* اللون الداكن */
 }
 
 .project p {
@@ -110,8 +156,8 @@ section {
 .project-gallery img {
     width: calc(33.333% - 10px); /* ثلاثة صور في الصف مع فجوة */
     max-width: 100%;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    height: auto; /* الحفاظ على نسب الأبعاد */
+    object-fit: contain; /* الحفاظ على الأبعاد داخل الإطار */
 }
 
 .project-gallery img:hover {
@@ -124,7 +170,7 @@ section {
 #about h2, #graduation-project h3 {
     font-size: 2rem;
     font-weight: 600;
-    color: #333;
+    color: #7d4f50; /* اللون الداكن */
 }
 
 #about p, #graduation-details p {
@@ -136,7 +182,7 @@ section {
 
 /* تنسيق مشروع التخرج */
 #graduation-project {
-    background: #f9f9f9;
+    background: #cc8b86; /* اللون الأحمر الداكن */
     padding: 40px 20px;
     text-align: center;
 }
@@ -152,8 +198,9 @@ section {
 
 .project-media img, .project-media video {
     width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .graduation-details ul {
@@ -169,7 +216,7 @@ section {
 .project-link {
     display: inline-block;
     padding: 10px 20px;
-    background: #333;
+    background: #7d4f50; /* اللون الداكن */
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -177,14 +224,14 @@ section {
 }
 
 .project-link:hover {
-    background: #555;
+    background: #aa998f; /* اللون الفاتح عند التمرير */
 }
 
 /* نموذج الاتصال */
 form {
     max-width: 400px;
     margin: 0 auto;
-    background: #f9f9f9;
+    background: #f9eae1; /* اللون الفاتح */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -201,19 +248,19 @@ form input, form textarea, form button {
 }
 
 form button {
-    background: #333;
+    background: #7d4f50; /* اللون الداكن */
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 form button:hover {
-    background: #555;
+    background: #cc8b86; /* اللون الأحمر الداكن */
 }
 
 /* الفوتر */
 footer {
-    background: #333;
+    background: #7d4f50; /* اللون الداكن */
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -221,7 +268,7 @@ footer {
 
 footer p {
     font-size: 14px;
-    color: #ddd;
+    color: rgba(0, 0, 0);
 }
 
 .email-link {
@@ -231,7 +278,7 @@ footer p {
 }
 
 .email-link:hover {
-    color: #ffcc00;
+    color: #d1be9c; /* اللون البيج */
 }
 
 .social-icons a {
@@ -258,172 +305,49 @@ footer p {
 }
 
 .social-icons a[aria-label="WhatsApp"]:hover {
-    color: #25D366;
+    color: #25d366;
 }
 
-/* Popup container */
+/* Popup */
 .popup {
-    display: none; /* مخفي افتراضيًا */
+    display: none; /* إخفاء الـ popup بشكل افتراضي */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة */
+    background: rgba(0, 0, 0, 0.7); /* خلفية شفافة داكنة */
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 9999;
 }
 
-/* Popup content */
 .popup-content {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    text-align: center;
-    width: 300px;
+    max-width: 80%; /* تحديد الحد الأقصى للعرض */
+    max-height: 80%; /* تحديد الحد الأقصى للطول */
+    overflow: auto; /* تمكين التمرير في حال كانت الصورة أكبر */
 }
 
-/* Close button */
-.close {
+.popup-content img {
+    width: 100%; /* تأكد من أن الصورة تأخذ العرض الكامل للـ popup */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain; /* الحفاظ على الأبعاد داخل الإطار */
+}
+
+.popup .close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-}
-
-/* Slider container */
-.slider {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Slides container */
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Each slide */
-.slides img {
-    width: 100%;
-    flex-shrink: 0;
-}
-
-/* Navigation buttons */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    z-index: 1000;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-.prev:hover, .next:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Popup styles */
-.popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.popup .slider {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-.popup .slides {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-}
-
-.popup .slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.popup .active {
-    display: block;
-}
-
-.popup .prev, .popup .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1;
-}
-
-.popup .prev {
-    left: 10px;
-}
-
-.popup .next {
-    right: 10px;
-}
-
-/* Close button */
-.popup .close {
-    position: absolute;
-    top: 10px;
+    top: 20px;
     right: 20px;
-    font-size: 2rem;
-    color: #333;
+    font-size: 30px;
+    color: #7d4f50; /* اللون الداكن */
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        padding: 20px 0;
-    }
-
-    .project-gallery img {
-        width: 100%; 
-    }
-
-    .graduation-project-content {
-        grid-template-columns: 1fr; 
-    }
+.popup .close-btn:hover {
+    color: #cc8b86; /* لون عند التمرير */
 }

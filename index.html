@@ -13,16 +13,15 @@
 
 <body>
     <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <!-- زر تنزيل السيرة الذاتية -->
-            <a href="resume/CV_HANAA_ALHOSHAN.pdf" download class="resume-download-btn">Download My Resume</a>
-        </nav>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="resume.pdf" class="resume-download-btn">Download My Resume</a>
+
     </header>
+    
 
     <section id="hero">
         <h1>Welcome to My Portfolio</h1>
@@ -72,28 +71,34 @@
             <div class="graduation-project-content">
                 <!-- الصور -->
                 <div class="project-gallery">
-                    <img src="images/graduation/g.jpg" alt="Project Image 1" class="gallery-image">
-                    <img src="images/graduation/gg.jpg" alt="Project Image 2" class="gallery-image">
-                    <img src="images/graduation/ggg.jpg" alt="Project Image 3" class="gallery-image">
-                    <img src="images/graduation/gggg.jpg" alt="Project Image 4" class="gallery-image">
-
+                    <img src="images/graduation/g.jpg" alt="Project Image 1" class="gallery-image" onclick="openPopup(this)">
+                    <img src="images/graduation/gg.jpg" alt="Project Image 2" class="gallery-image" onclick="openPopup(this)">
+                    <img src="images/graduation/ggg.jpg" alt="Project Image 3" class="gallery-image" onclick="openPopup(this)">
+                    <img src="images/graduation/gggg.jpg" alt="Project Image 4" class="gallery-image" onclick="openPopup(this)">
                 </div>
+        
                 <div class="graduation-details">
                     <h3>Convert Motion to Animation Movie</h3>
                     <p>Create 3D animations that accurately reflect human movements with attention to detail. Integrate
                         motion capture data with 3D characters, ensuring smooth movement that matches the character's
                         structure. To create a short film from 3D animation.</p>
-                        <h4>Technologies Used:</h4>
-
+                    <h4>Technologies Used:</h4>
                     <ul>
                         <li>Machine Learning (Python)</li>
-                        <!-- <li>تفصيل 2</li>
-                        <li>تفصيل 3</li> -->
                     </ul>
-                    <a href="https://youtu.be/mQ4U13FAR_s?si=Mn7YtdyXAlaKvfpP" class="project-link">Youtube link </a>
+                    <a href="https://youtu.be/mQ4U13FAR_s?si=Mn7YtdyXAlaKvfpP" class="project-link">Youtube link</a>
                 </div>
             </div>
         </section>
+        
+        <!-- Popup -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-popup" onclick="closePopup()">X</span>
+                <img id="popup-image" src="" alt="Project Image" style="width:100%; border-radius: 8px;">
+            </div>
+        </div>
+        
         
 
 
